@@ -1,10 +1,8 @@
-
-namespace models
+namespace github_stars.Infra.URLs
 {
-    class Project
+    public static class GithubApiUrls
     {
-
-        public string Repositories
+        public static string Repositories
         {
             get
             {

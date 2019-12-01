@@ -1,6 +1,6 @@
-namespace models
+namespace github_stars.Domain.Entities
 {
-    class Repository
+    public class Repository
     {
         public int? Id { get; set; }
         public string? Node_id { get; set; }

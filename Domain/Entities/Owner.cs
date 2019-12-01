@@ -1,6 +1,6 @@
-namespace models
+namespace github_stars.Domain.Entities
 {
-    class Owner
+    public class Owner
     {
         public string Login { get; set; }
         public int Id { get; set; }
@@ -20,6 +20,5 @@ namespace models
         public string Received_events_url { get; set; }
         public string Type { get; set; }
         public bool Site_admin { get; set; }
-
     }
 }

@@ -1,6 +1,6 @@
-namespace models
+namespace github_stars.Domain.Entities
 {
-    class License
+    public class License
     {
         public string Key { get; set; }
         public bool Name { get; set; }
