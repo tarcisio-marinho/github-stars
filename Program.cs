@@ -9,6 +9,9 @@ using github_stars.Infra.URLs;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.IO;
+using github_stars.Infra.mongodb;
+using MongoDB.Driver;
+
 
 namespace github_stars
 {
@@ -17,7 +20,15 @@ namespace github_stars
         static async Task Main(string[] args)
         {
 
+
+            IMongoClient dbclient;
+            IMongoDatabase database;
+            dbclient = new MongoClient(URI.Uri);
+            database = dbclient.GetDatabase(URI.Collection);
+            
+
             Console.WriteLine("Hello World!");
+
             // using(MainLoop m = new MainLoop()){
             //     m.loop();
             // }
@@ -25,10 +36,11 @@ namespace github_stars
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
             var responseTask = await client.GetAsync(GithubApiUrls.Repositories);
             var repos = await responseTask.Content.ReadAsAsync<IList<Repository>>();
-            
+
             foreach (var repo in repos)
             {
-                if(repo.License != null){
+                if (repo.License != null)
+                {
                     Console.WriteLine(repo.License.Name);
 
                 }
